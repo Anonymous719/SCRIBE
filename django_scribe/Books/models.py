@@ -9,6 +9,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=15, decimal_places=2, default= 99.99)
     cover_photo = models.ImageField(null = True, blank = True)
     file = models.FileField(null=True, blank = True)
+    is_published = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.title
