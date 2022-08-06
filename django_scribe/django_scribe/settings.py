@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'author',
     'cloudinary_storage',
     'cloudinary',
+    'users',
 
 ]
 

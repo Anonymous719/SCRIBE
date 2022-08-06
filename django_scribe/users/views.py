@@ -36,8 +36,11 @@ class UserPurchasedBooksAPI(APIView):
 
 class UserWishlist(APIView):
     def get(self, request, pk):
-        rating = User.objects.get(id = pk).rating
-        return Response({'rating':rating})
+        user = User.objects.get(id = pk)
+        books = Book.objects.filter(user = user)
+        print(books)
+        serializer = BookSerializer(books, many = True)
+        return Response(serializer.data)
     
     def post(self, request, pk):
         user = User.objects.get(id = pk)

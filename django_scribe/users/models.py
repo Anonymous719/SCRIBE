@@ -9,7 +9,8 @@ class User(models.Model):
     contact = models.CharField(max_length=15)
     email = models.EmailField(null=True, blank= True)
     photo = models.ImageField(null= True, blank=True)
-    wishlist = models.
+    wishlist = models.ManyToManyField(Book, related_name="wisher")
+    purchaged = models.ManyToManyField(Book)
 
 
     def __str__(self) -> str:
