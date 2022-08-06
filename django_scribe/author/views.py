@@ -55,5 +55,6 @@ class AuthorRatingAPI(APIView):
     def post(self, request, pk):
         author = Author.objects.get(id = pk)
         author.rating += request.data
-        return Response({'rating':author.rating})
+        author.ratedUsersNo += 1
+        return Response({'rating':float(author.rating)/author.ratedUsersNo})
     
