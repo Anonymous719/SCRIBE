@@ -9,7 +9,7 @@ class Author(models.Model):
     email = models.EmailField(null=True, blank= True)
     photo = models.ImageField(null= True, blank=True)
     rating = models.IntegerField(null=True, blank=True)
-    ratedUsersNo = models.IntegerField(null = True)
+    ratedUsersNo = models.IntegerField(null = True, default=0)
     rewardPoints = models.IntegerField(null=True, blank= True)
 
 
