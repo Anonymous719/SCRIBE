@@ -10,7 +10,7 @@ class User(models.Model):
     email = models.EmailField(null=True, blank= True)
     photo = models.ImageField(null= True, blank=True)
     wishlist = models.ManyToManyField(Book, related_name="wisher")
-    purchaged = models.ManyToManyField(Book)
+    purchased = models.ManyToManyField(Book, related_name="purchased")
 
 
     def __str__(self) -> str:

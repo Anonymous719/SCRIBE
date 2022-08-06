@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h0qry02_xii5@&nhvvfe+4!o!0p)si1dei4(pz3&6jmvfv&zzw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'Books',
     'api',
     'author',
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'django_scribe.urls'
@@ -89,6 +92,14 @@ WSGI_APPLICATION = 'django_scribe.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+    'http://localhost:8080',
+    'http://localhost:3030',
+    'http://localhost:4000',
+    'https://87b8-202-166-219-222.in.ngrok.io',
+]
 
 DATABASES = {
     'default': {
